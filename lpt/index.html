@@ -1,640 +1,162 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>Bal Digambar School | Nurturing Values & Excellence</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --school-maroon: #6a1b2a;
-            --saffron-gold: #f4a460;
-            --sand-cream: #fdf8ed;
-            --deep-teal: #2d6a4f;
-            --warm-brown: #8b5e3c;
-            --light-ivory: #fffaf0;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.5;
-            color: #2c3e3f;
-            overflow-x: hidden;
-            background: var(--sand-cream);
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* ========== DESKTOP HEADER ========== */
-        .school-header {
-            background: rgba(106, 27, 42, 0.96);
-            backdrop-filter: blur(10px);
-            border-bottom: 2px solid var(--saffron-gold);
-            padding: 14px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .header-flex {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .brand-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .brand-logo i {
-            font-size: 2.2rem;
-            color: var(--saffron-gold);
-        }
-
-        .brand-text h1 {
-            font-size: 1.4rem;
-            font-family: 'Playfair Display', serif;
-            color: white;
-            letter-spacing: 0.5px;
-        }
-
-        .brand-text p {
-            font-size: 0.7rem;
-            color: #f4a460;
-            letter-spacing: 0.5px;
-        }
-
-        .nav-links ul {
-            display: flex;
-            gap: 32px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            font-weight: 500;
-            color: #e2e8f0;
-            transition: 0.2s;
-            font-size: 0.9rem;
-        }
-
-        .nav-links a:hover {
-            color: var(--saffron-gold);
-        }
-
-        .mobile-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.8rem;
-            color: var(--saffron-gold);
-            cursor: pointer;
-        }
-
-        /* ========== MOBILE ENHANCED — BAL DIGAMBAR THEME ========== */
-        .mobile-school-hero {
-            display: none;
-            position: relative;
-            width: 100%;
-            min-height: 100vh;
-            background: linear-gradient(145deg, #4a1520, #6a1b2a);
-            overflow: hidden;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            padding: 20px 0;
-        }
-
-        /* Animated cultural pattern (lightweight) */
-        .mobile-school-hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: radial-gradient(circle, rgba(244,164,96,0.08) 1.5px, transparent 1.5px);
-            background-size: 40px 40px;
-            animation: culturalDrift 26s linear infinite;
-            pointer-events: none;
-        }
-
-        @keyframes culturalDrift {
-            0% { transform: translate(0,0);}
-            100% { transform: translate(40px, 40px);}
-        }
-
-        /* Floating gold rings */
-        .school-ring {
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            border: 1px solid rgba(244,164,96,0.2);
-            border-radius: 50%;
-            top: -80px;
-            right: -100px;
-            animation: spinSchool 24s linear infinite;
-            pointer-events: none;
-        }
-
-        .school-ring2 {
-            width: 400px;
-            height: 400px;
-            border-color: rgba(45,106,79,0.2);
-            top: auto;
-            bottom: -100px;
-            left: -120px;
-            animation: spinSchoolReverse 28s linear infinite;
-        }
-
-        @keyframes spinSchool {
-            100% { transform: rotate(360deg);}
-        }
-        @keyframes spinSchoolReverse {
-            100% { transform: rotate(-360deg);}
-        }
-
-        /* LARGER IMAGE CONTAINER */
-        .image-3d-wrap {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            padding: 10px 20px 20px;
-            margin-bottom: 10px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-school-img {
-            max-width: 100%;
-            width: auto;
-            max-height: 48vh;
-            height: auto;
-            object-fit: contain;
-            filter: drop-shadow(0 0 20px rgba(244,164,96,0.5));
-            animation: schoolFloat 3.8s ease-in-out infinite;
-        }
-
-        @keyframes schoolFloat {
-            0%,100% { transform: translateY(0) scale(1);}
-            50% { transform: translateY(-14px) scale(1.02);}
-        }
-
-        /* BIGGER WHATSAPP BUTTON - Saffron Gold Theme */
-        .school-wa-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 14px;
-            background: linear-gradient(105deg, #f4a460, #f5b87e, #d4893c);
-            background-size: 200% 200%;
-            border: none;
-            color: #4a1520;
-            padding: 18px 48px;
-            border-radius: 60px;
-            font-weight: 800;
-            font-size: 1.3rem;
-            font-family: 'Inter', sans-serif;
-            text-decoration: none;
-            transition: 0.2s;
-            box-shadow: 0 0 25px rgba(244,164,96,0.6);
-            animation: btnSchoolPulse 1.8s infinite alternate, gradientShift 3s infinite;
-            position: relative;
-            z-index: 2;
-        }
-
-        @keyframes btnSchoolPulse {
-            0% { box-shadow: 0 5px 15px rgba(244,164,96,0.4); transform: scale(1);}
-            100% { box-shadow: 0 15px 35px rgba(244,164,96,0.8); transform: scale(1.04);}
-        }
-
-        @keyframes gradientShift {
-            0%,100% { background-position: 0% 50%;}
-            50% { background-position: 100% 50%;}
-        }
-
-        .school-wa-btn i {
-            font-size: 1.8rem;
-            animation: iconPulse 1s infinite alternate;
-        }
-
-        @keyframes iconPulse {
-            0% { transform: scale(1);}
-            100% { transform: scale(1.15);}
-        }
-
-        /* Scroll indicator */
-        .scroll-school {
-            position: absolute;
-            bottom: 18px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 0.7rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
-            color: #f4a460;
-            letter-spacing: 1.5px;
-            animation: scrollSchool 2s infinite;
-            z-index: 2;
-        }
-
-        @keyframes scrollSchool {
-            0%,100% { opacity: 0.5; transform: translateX(-50%) translateY(0);}
-            50% { opacity: 1; transform: translateX(-50%) translateY(-6px);}
-        }
-
-        /* ========== DESKTOP SECTIONS ========== */
-        .hero-desktop {
-            background: linear-gradient(125deg, #4a1520, #6a1b2a), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1600&q=80');
-            background-blend-mode: overlay;
-            background-size: cover;
-            padding: 110px 0 90px;
-            text-align: center;
-        }
-
-        .hero-desktop h2 {
-            font-size: 2.8rem;
-            font-family: 'Playfair Display', serif;
-            color: #f4a460;
-            letter-spacing: 0.5px;
-        }
-
-        .btn-primary {
-            background: #f4a460;
-            color: #4a1520;
-            padding: 12px 32px;
-            border-radius: 40px;
-            font-weight: 700;
-            text-decoration: none;
-            display: inline-block;
-            transition: 0.2s;
-        }
-
-        .section-pad {
-            padding: 70px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            font-family: 'Playfair Display', serif;
-            color: #6a1b2a;
-            margin-bottom: 45px;
-        }
-
-        .about-grid {
-            display: flex;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .about-img {
-            flex: 1;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-
-        .about-img img { width: 100%; display: block;}
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 30px;
-        }
-
-        .feature-card {
-            background: white;
-            border-radius: 20px;
-            padding: 28px 20px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.04);
-            transition: 0.2s;
-            border: 1px solid #f0e0d0;
-        }
-
-        .feature-card:hover { transform: translateY(-5px); border-color: #f4a460;}
-
-        .feature-card i { font-size: 2.5rem; color: #6a1b2a; margin-bottom: 12px;}
-
-        /* footer */
-        footer {
-            background: #4a1520;
-            color: #e2e8f0;
-            padding: 50px 0 25px;
-        }
-
-        .footer-inner {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-            gap: 40px;
-        }
-
-        .social-links a {
-            display: inline-flex;
-            background: rgba(255,255,255,0.08);
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            align-items: center;
-            justify-content: center;
-            margin-right: 8px;
-            color: #f4a460;
-        }
-
-        .desktop-wa {
-            position: fixed;
-            bottom: 28px;
-            right: 28px;
-            background: #f4a460;
-            padding: 10px 22px;
-            border-radius: 40px;
-            display: flex;
-            gap: 10px;
-            text-decoration: none;
-            color: #4a1520;
-            font-weight: 700;
-            z-index: 99;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-
-        /* responsiveness - ENHANCED MOBILE */
-        @media (max-width: 780px) {
-            .school-header { display: none; }
-            .hero-desktop { display: none; }
-            .mobile-school-hero { display: flex; }
-            .about-grid { flex-direction: column; }
-            .section-pad { padding: 50px 0; }
-            .section-title { font-size: 1.8rem; margin-bottom: 35px; }
-            .desktop-wa { display: none; }
-            
-            .hero-school-img { 
-                max-width: 88%; 
-                max-height: 52vh; 
-            }
-            
-            .school-wa-btn { 
-                padding: 16px 40px; 
-                font-size: 1.2rem;
-                gap: 12px;
-            }
-            
-            .school-wa-btn i {
-                font-size: 1.6rem;
-            }
-        }
-
-        @media (max-width: 550px) {
-            .hero-school-img { 
-                max-width: 92%; 
-                max-height: 48vh; 
-            }
-            .school-wa-btn { 
-                padding: 14px 34px; 
-                font-size: 1.1rem;
-                gap: 10px;
-            }
-            .school-wa-btn i {
-                font-size: 1.4rem;
-            }
-            .school-ring { display: none; }
-        }
-
-        @media (min-width: 781px) {
-            .mobile-school-hero { display: none; }
-            .school-header { display: block; }
-            .hero-desktop { display: block; }
-            .desktop-wa { display: flex; }
-        }
-
-        .btn-outline-maroon {
-            background: transparent;
-            border: 1px solid #6a1b2a;
-            color: #6a1b2a;
-            padding: 8px 18px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: 0.2s;
-        }
-
-        .btn-outline-maroon:hover { background: #6a1b2a; color: white;}
-    </style>
-</head>
-<body>
-
-<!-- *************************** DESKTOP HEADER *************************** -->
-<div class="school-header">
-    <div class="container header-flex">
-        <div class="brand-logo">
-            <i class="fas fa-school"></i>
-            <div class="brand-text">
-                <h1>BAL DIGAMBAR SCHOOL</h1>
-                <p>NURTURING VALUES & EXCELLENCE</p>
-            </div>
-        </div>
-        <div class="nav-links">
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#academics">Academics</a></li>
-                <li><a href="#facilities">Facilities</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-        <button class="mobile-toggle" id="mobileNavToggle"><i class="fas fa-bars"></i></button>
-    </div>
-</div>
-
-<!-- *************************** MOBILE ENHANCED — BAL DIGAMBAR SCHOOL *************************** -->
-<div class="mobile-school-hero">
-    <div class="school-ring"></div>
-    <div class="school-ring school-ring2"></div>
-    
-    <!-- BIGGER IMAGE -->
-    <div class="image-3d-wrap">
-        <img src="md1.webp" alt="Bal Digambar School" class="hero-school-img" onerror="this.src='600x1100.png';">
-    </div>
-    
-    <!-- BIGGER WHATSAPP BUTTON with link: https://admin.flipchat.link/pro/ipl2026 -->
-    <a href="https://admin.flipchat.link/pro/ipl2026" target="_blank" class="school-wa-btn">
-        <i class="fab fa-whatsapp"></i> GET IT NOW
-    </a>
-    
-    <div class="scroll-school">
-        <i class="fas fa-arrow-down"></i>
-        <span>EXPLORE BAL DIGAMBAR</span>
-        <i class="fas fa-star"></i>
-    </div>
-</div>
-
-<!-- *************************** DESKTOP HERO *************************** -->
-<div class="hero-desktop" id="home">
-    <div class="container">
-        <h2>BAL DIGAMBAR SCHOOL</h2>
-        <p style="font-size:1.1rem; max-width:700px; margin:20px auto;">Excellence in education since 1990. Nurturing young minds with a perfect blend of academics, values, and holistic development.</p>
-        <a href="#academics" class="btn-primary">Explore Programs →</a>
-    </div>
-</div>
-
-<!-- *************************** ABOUT SECTION *************************** -->
-<section class="section-pad" id="about">
-    <div class="container">
-        <h2 class="section-title">About Bal Digambar School</h2>
-        <div class="about-grid">
-            <div class="about-img">
-                <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80" alt="Bal Digambar School Campus">
-            </div>
-            <div>
-                <p>Bal Digambar School has been a beacon of quality education since 1990. Our institution is committed to providing a nurturing environment that fosters academic excellence, character development, and holistic growth.</p>
-                <p style="margin-top: 16px;">We follow a child-centric curriculum that balances academics with co-curricular activities. Our experienced faculty ensures personalized attention to every student, helping them discover their true potential.</p>
-                <p style="margin-top: 16px;">At Bal Digambar, we believe in shaping responsible global citizens who are confident, compassionate, and curious. Our alumni have excelled in various fields including engineering, medicine, business, and civil services.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- *************************** ACADEMICS SECTION *************************** -->
-<section class="section-pad" style="background: #f5ede5;" id="academics">
-    <div class="container">
-        <h2 class="section-title">Our Academic Programs</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <i class="fas fa-child"></i>
-                <h3>Primary (I-V)</h3>
-                <p>Foundation building with activity-based learning, focusing on literacy, numeracy, and creative expression.</p>
-                <a href="https://admin.flipchat.link/pro/ipl2026" target="_blank" class="btn-outline-maroon" style="margin-top: 12px; display: inline-block;">Enquire</a>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-flask"></i>
-                <h3>Secondary (VI-X)</h3>
-                <p>Comprehensive curriculum with sciences, mathematics, languages, and computer education.</p>
-                <a href="https://admin.flipchat.link/pro/ipl2026" target="_blank" class="btn-outline-maroon" style="margin-top: 12px; display: inline-block;">Enquire</a>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-microscope"></i>
-                <h3>Senior Secondary (XI-XII)</h3>
-                <p>Specialized streams in Science, Commerce, and Humanities with career counseling.</p>
-                <a href="https://admin.flipchat.link/pro/ipl2026" target="_blank" class="btn-outline-maroon" style="margin-top: 12px; display: inline-block;">Enquire</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- *************************** FACILITIES SECTION *************************** -->
-<section class="section-pad" id="facilities">
-    <div class="container">
-        <h2 class="section-title">Our Facilities</h2>
-        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:25px;">
-            <div style="text-align:center; background: white; padding: 20px; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.04);"><i class="fas fa-laptop-code" style="font-size:2rem; color:#6a1b2a;"></i><h3 style="margin:10px 0;">Smart Classrooms</h3></div>
-            <div style="text-align:center; background: white; padding: 20px; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.04);"><i class="fas fa-flask" style="font-size:2rem; color:#6a1b2a;"></i><h3 style="margin:10px 0;">Science Labs</h3></div>
-            <div style="text-align:center; background: white; padding: 20px; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.04);"><i class="fas fa-book" style="font-size:2rem; color:#6a1b2a;"></i><h3 style="margin:10px 0;">Digital Library</h3></div>
-            <div style="text-align:center; background: white; padding: 20px; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.04);"><i class="fas fa-futbol" style="font-size:2rem; color:#6a1b2a;"></i><h3 style="margin:10px 0;">Sports Complex</h3></div>
-        </div>
-    </div>
-</section>
-
-<!-- *************************** WHY BAL DIGAMBAR *************************** -->
-<section class="section-pad" style="background: #f5ede5;">
-    <div class="container">
-        <h2 class="section-title">Why Bal Digambar</h2>
-        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:30px;">
-            <div style="text-align:center;"><i class="fas fa-chalkboard-user" style="font-size:2.2rem; color:#6a1b2a;"></i><h3 style="margin:12px 0;">Expert Faculty</h3><p>Experienced & dedicated teachers</p></div>
-            <div style="text-align:center;"><i class="fas fa-users" style="font-size:2.2rem; color:#6a1b2a;"></i><h3 style="margin:12px 0;">Small Batches</h3><p>Individual attention guaranteed</p></div>
-            <div style="text-align:center;"><i class="fas fa-chart-line" style="font-size:2.2rem; color:#6a1b2a;"></i><h3 style="margin:12px 0;">Regular Assessments</h3><p>Continuous progress tracking</p></div>
-            <div style="text-align:center;"><i class="fas fa-hand-holding-heart" style="font-size:2.2rem; color:#6a1b2a;"></i><h3 style="margin:12px 0;">Value Education</h3><p>Focus on moral & ethical growth</p></div>
-        </div>
-    </div>
-</section>
-
-<!-- *************************** FOOTER *************************** -->
-<footer id="contact">
-    <div class="container">
-        <div class="footer-inner">
-            <div>
-                <h3 style="color: #f4a460;">BAL DIGAMBAR SCHOOL</h3>
-                <p>Excellence in education since 1990. Nurturing young minds to become confident, compassionate leaders.</p>
-                <div class="social-links" style="margin-top: 20px;">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            <div>
-                <h4 style="color: #f4a460;">Quick Links</h4>
-                <ul style="list-style: none; margin-top: 12px;">
-                    <li><a href="#home" style="color:#e2e8f0;">Home</a></li>
-                    <li><a href="#academics" style="color:#e2e8f0;">Academics</a></li>
-                    <li><a href="#facilities" style="color:#e2e8f0;">Facilities</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 style="color: #f4a460;">Contact Info</h4>
-                <p><i class="fas fa-map-marker-alt"></i> Education Complex, Civil Lines, Delhi - 110054</p>
-                <p><i class="fab fa-whatsapp"></i> +91 98765 43210 (Admissions)</p>
-                <p><i class="fas fa-envelope"></i> admissions@baldigambarschool.edu</p>
-            </div>
-        </div>
-        <div style="text-align:center; border-top: 1px solid #5a2a3a; margin-top: 40px; padding-top: 30px;">
-            <p>© 2025 Bal Digambar School — Where Values & Excellence Meet</p>
-        </div>
-    </div>
-</footer>
-
-<!-- Desktop WhatsApp -->
-<a href="https://admin.flipchat.link/pro/ipl2026" target="_blank" class="desktop-wa">
-    <i class="fab fa-whatsapp" style="font-size: 1.3rem;"></i> <span>Enquiry Now</span>
-</a>
-
-<script>
-    // mobile menu toggle for desktop small view
-    const toggle = document.getElementById('mobileNavToggle');
-    const navList = document.querySelector('.nav-links ul');
-    if(toggle && navList) {
-        toggle.addEventListener('click', () => {
-            navList.classList.toggle('show-mobile');
-            toggle.innerHTML = navList.classList.contains('show-mobile') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-        });
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> winfix </title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
-    // smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            if(href === '#') return;
-            const target = document.querySelector(href);
-            if(target) {
-                e.preventDefault();
-                let offset = window.innerWidth <= 780 ? 20 : 80;
-                window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
-                if(navList && navList.classList) navList.classList.remove('show-mobile');
-                if(toggle) toggle.innerHTML = '<i class="fas fa-bars"></i>';
-            }
-        });
-    });
+    body {
+      background: #000;
+      color: #fff;
+      line-height: 1.6;
+    }
 
-    // background consistency for mobile
-    const setBodyBg = () => {
-        if(window.innerWidth <= 780) {
-            document.body.style.backgroundColor = '#4a1520';
-        } else {
-            document.body.style.backgroundColor = '#fdf8ed';
-        }
-    };
-    setBodyBg();
-    window.addEventListener('resize', setBodyBg);
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #000;
+    }
+li{max-width: 500px;margin: 0 auto;color: #ccc;}
+
+    /* Top Image Section */
+    .hero img {
+      width: 100%;
+      display: block;
+    }
+
+    /* CTA Section */
+    .cta {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .cta button {
+      background: #25d366;
+      color: #fff;
+      border: none;
+      padding: 14px 24px;
+      font-size: 16px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .cta button:hover {
+      opacity: 0.9;
+    }
+
+    /* Content Section */
+    .content {
+      padding: 24px 20px 40px;
+    }
+
+    .content h2 {
+      font-size: 30px;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .content p {
+      font-size: 16px;
+      margin-bottom: 14px;
+      color: #ccc;
+    }
+
+    /* Footer Buttons */
+    .links {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      padding: 20px;
+    }
+
+    .links a {
+      text-decoration: none;
+      background: #1a1a1a;
+      color: #fff;
+      padding: 12px;
+      text-align: center;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .links a:hover {
+      background: #2a2a2a;
+    }
+
+    footer {
+      padding: 16px;
+      text-align: center;
+      font-size: 12px;
+      color: #777;
+    }
+  </style>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17997413358"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17997413358');
 </script>
+
+<script src="../tracking.js"></script>
+<!-- Event snippet for Page view conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-17997413358/E1WuCKq-5oMcEO736oVD',
+      'value': 1.0,
+      'currency': 'INR',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+
+<body>
+  <div class="container">
+
+    <!-- Image on Top -->
+    <div class="hero">
+    <a href="https://admin.flipchat.link/pro/ipl2026" onclick="gtag_report_conversion()">  <img src="600x1100.png" alt="Anna King Banner" />
+    </div>
+
+    <!-- Button Section -->
+    <div class="cta">
+      <button >WhatsApp Now</button></a>
+    </div>
+
+  
+
+    <!-- Extra Links -->
+    <div class="links">
+      <a href="#">Subscribe on Twitch</a>
+      <a href="#">Become a Patron</a>
+      <a href="#">Shop My Work</a>
+      <a href="#">Join My Discord</a>
+    </div>
+
+    <footer>
+      © 2026 Anna King. All rights reserved.
+    </footer>
+
+  </div>
 </body>
 </html>
